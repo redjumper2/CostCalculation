@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Cost Estimator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏗️ Construction Cost Estimator</h1>
+            <p>Professional cost calculation for construction projects</p>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>📋 Materials</h2>
+                <div id="materials-list">
+                    <div class="input-row">
+                        <input type="text" placeholder="Material name (e.g., Concrete)" class="material-name">
+                        <input type="number" placeholder="Quantity" class="material-quantity" min="0" step="0.01">
+                        <input type="number" placeholder="Unit Cost ($)" class="material-cost" min="0" step="0.01">
+                        <button class="btn btn-danger" onclick="removeMaterial(this)">Remove</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="addMaterial()">+ Add Material</button>
+            </div>
+
+            <div class="section">
+                <h2>👷 Labor</h2>
+                <div id="labor-list">
+                    <div class="input-row">
+                        <input type="text" placeholder="Labor type (e.g., Electrician)" class="labor-type">
+                        <input type="number" placeholder="Hours" class="labor-hours" min="0" step="0.1">
+                        <input type="number" placeholder="Rate/Hour ($)" class="labor-rate" min="0" step="0.01">
+                        <button class="btn btn-danger" onclick="removeLabor(this)">Remove</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="addLabor()">+ Add Labor</button>
+            </div>
+
+            <div class="section results">
+                <h2>💰 Cost Calculation</h2>
+                <button class="btn btn-success" onclick="calculateCosts()">Calculate Total Cost</button>
+                
+                <div id="cost-results" style="display: none;">
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <h3>Materials Cost</h3>
+                            <div class="cost-value" id="materials-total">$0.00</div>
+                        </div>
+                        <div class="cost-item">
+                            <h3>Labor Cost</h3>
+                            <div class="cost-value" id="labor-total">$0.00</div>
+                        </div>
+                        <div class="cost-item">
+                            <h3>Subtotal</h3>
+                            <div class="cost-value" id="subtotal">$0.00</div>
+                        </div>
+                        <div class="cost-item">
+                            <h3>Overhead (10%)</h3>
+                            <div class="cost-value" id="overhead">$0.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="total-cost">
+                        <div>Total Project Cost</div>
+                        <div id="total-cost">$0.00</div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3>Detailed Breakdown:</h3>
+                        <div id="detailed-breakdown"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
